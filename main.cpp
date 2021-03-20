@@ -38,18 +38,18 @@ int main()
             int teacher;
             std::cin >> nume >> clasa >> teacher;
             Elev student(nume, clasa);
-            Profesor pr = teacherlist.profesori[teacher];
+            Profesor pr = teacherlist.getdata(teacher);
             pr.add_elev(student);
         }
         if(type == 4) // nou algoritm 
         {
             std::string nume_algoritm, nume_elev;
             std::cin >> nume_elev >> nume_algoritm;
-            int val = teacherlist.elevi[nume_elev];
-            Profesor x = teacherlist.profesori[val];
-            int poz = x.link[nume_elev];
-            Elev e = x.elevi[poz];
-            e.Algorithms.push_back(nume_algoritm);
+            int val = teacherlist.getstudent(nume_elev); 
+            Profesor x = teacherlist.getdata(val);
+            int poz = x.getlink(nume_elev);
+            Elev e = x.getstudent(poz);
+            e.insertalgo(nume_algoritm);
         }
     }
     return 0;
