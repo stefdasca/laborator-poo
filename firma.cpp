@@ -8,6 +8,14 @@ Firma::Firma()
     tasklist.clear();
 }
 
+Firma::Firma(const Firma &f)
+{
+    profesori = f.profesori;
+    feedback_lists = f.feedback_lists;
+    elevi = f.elevi;
+    tasklist = f.tasklist;
+}
+
 Firma::Firma(std::vector<Profesor> a, std::vector<std::string> b, std::map<std::string, int> c, std::vector<Task> d)
 {
     profesori = a;
