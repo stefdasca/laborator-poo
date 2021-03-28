@@ -33,6 +33,15 @@ Task Task::operator=(const Task& task)
     return *this;
 }
 
+Task::Task(const Task& task)
+{
+    link = task.link;
+    problem_tags = task.problem_tags;
+    difficulty = task.difficulty;
+    solution = task.solution;
+}
+
+
 std::ostream& operator<<(std::ostream& output, const Task& task)
 {
     output << "Link task: " << task.link << '\n';
