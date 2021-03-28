@@ -27,6 +27,16 @@ Elev::~Elev()
     tasks.clear();
 }
 
+Elev::Elev(const Elev& elev)
+{
+    Nume = elev.Nume;
+    clasa = elev.clasa;
+    Profesor = elev.Profesor;
+    Algorithms = elev.Algorithms;
+    Problems = elev.Problems;
+    tasks = elev.tasks;
+}
+
 Elev Elev::operator=(const Elev& elev)
 {
     this -> Nume = elev.Nume;
