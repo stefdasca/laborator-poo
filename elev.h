@@ -15,6 +15,7 @@ class Elev
         Elev();
         Elev(std::string a, int b, std::string c);
         ~Elev();
+        Elev(const Elev &e);
         
         friend std::ostream& operator<<(std::ostream& output, const Elev& elev);
         Elev operator=(const Elev& elev);
