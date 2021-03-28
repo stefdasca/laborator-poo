@@ -18,6 +18,7 @@ class Profesor
     public:
         Profesor(std::string b, std::string c);
         ~Profesor();
+        Profesor(const Profesor &prof);
         
         friend std::ostream& operator<<(std::ostream& output, const Profesor& profesor);
         Profesor operator=(const Profesor& Profesor);
