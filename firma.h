@@ -17,6 +17,7 @@ class Firma
         Firma();
         Firma(std::vector<Profesor> a, std::vector<std::string> b, std::map<std::string, int> c, std::vector<Task> d);
         ~Firma();
+        Firma(const Firma &f);
         
         friend std::ostream& operator<<(std::ostream& output, const Firma& firma);
         Firma operator=(const Firma& firma);
