@@ -26,6 +26,18 @@ Profesor::~Profesor()
     link.clear();
 }
 
+Profesor::Profesor(const Profesor& profesor)
+{
+    nr_elevi = profesor.nr_elevi;
+    nume = profesor.nume;
+    adresa = profesor.adresa;
+    elevi = profesor.elevi;
+    feedback = profesor.feedback;
+    link = profesor.link;
+    cnt_feedbacks = profesor.cnt_feedbacks;
+    score_feedbacks = profesor.score_feedbacks;
+}
+
 Profesor Profesor::operator=(const Profesor& profesor)
 {
     this -> nr_elevi = profesor.nr_elevi;
