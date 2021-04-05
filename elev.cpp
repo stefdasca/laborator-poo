@@ -55,6 +55,7 @@ std::ostream& operator<<(std::ostream& output, const Elev& elev)
     output << "Profesor indrumator: " << elev.Profesor << '\n';
     output << "Elevul a invatat " << elev.Algorithms.size() << " algoritmi si tehnici" << '\n';
     output << "Elevul a rezolvat " << elev.Problems.size() << " probleme" << '\n';
+    return output;
 }
 
 void Elev::insertalgo(std::string s)
