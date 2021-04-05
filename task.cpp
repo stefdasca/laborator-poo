@@ -30,7 +30,7 @@ Task Task::operator=(const Task& task)
     this -> problem_tags = task.problem_tags;
     this -> difficulty = task.difficulty;
     this -> solution = task.solution;
-    return *this;
+    return &this;
 }
 
 Task::Task(const Task& task)
