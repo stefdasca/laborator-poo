@@ -54,4 +54,5 @@ std::ostream& operator<<(std::ostream& output, const Task& task)
     output << '\n';
     output << "Dificultate " << task.difficulty << '\n';
     output << "Link solutie " << task.solution << '\n';
+    return output;
 }
