@@ -1,4 +1,4 @@
-21
+23
 2 Stefan Bucuresti
 2 Alex Suceava
 2 Flaviu Roman
@@ -9,10 +9,10 @@
 4 Roxana lee
 4 Andrei divide_et_impera
 4 Radu ciur
-5 strabunica 1 stiva https://infoarena.ro/job_detail/1926834?action=view-source
-5 labirint2 1 lee https://infoarena.ro/job_detail/2723099?action=view-source
-5 biti 1 mate https://infoarena.ro/job_detail/2213016?action=view-source
-5 yinyang 2 greedy sortari https://infoarena.ro/job_detail/2389547?action=view-source
+5 strabunica 1 stiva 4 https://infoarena.ro/job_detail/1926834?action=view-source
+5 labirint2 1 lee 5 https://infoarena.ro/job_detail/2723099?action=view-source
+5 biti 1 mate 2 https://infoarena.ro/job_detail/2213016?action=view-source
+5 yinyang 2 greedy sortari 3 https://infoarena.ro/job_detail/2389547?action=view-source
 6 Roxana 1
 6 Robert 2
 6 Radu 2
@@ -20,3 +20,5 @@
 7 Radu 2
 8 Robert
 8 Radu
+8 Roxana
+8 Andrei
