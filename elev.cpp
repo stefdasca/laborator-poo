@@ -5,6 +5,9 @@ Elev::Elev(std::string a, int b, std::string c)
     Profesor = c;
     clasa = b;
     Nume = a;
+    Algorithms.clear();
+    Problems.clear();
+    tasks.clear();
 }
 
 Elev::Elev()
