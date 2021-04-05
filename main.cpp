@@ -11,6 +11,7 @@
     type = 5: se primesc detaliile unei probleme de rezolvat si se adauga problema pentru elevul respectiv
     type = 6: se primesc detaliile unei noi teme de rezolvat si se adauga tema pentru elevul respectiv
     type = 7: se primesc detaliile unei probleme care a fost rezolvata si se sterge problema pentru elevul respectiv
+    type = 8: se primeste numarul de ordine al unui elev si se afiseaza informatiile despre elev
 
 */
 
