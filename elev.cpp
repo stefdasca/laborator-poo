@@ -45,7 +45,7 @@ Elev Elev::operator=(const Elev& elev)
     this -> Algorithms = elev.Algorithms;
     this -> Problems = elev.Problems;
     this -> tasks = elev.tasks;
-    return *this;
+    return &this;
 }
 
 std::ostream& operator<<(std::ostream& output, const Elev& elev)
