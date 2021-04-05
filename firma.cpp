@@ -36,7 +36,7 @@ Firma Firma::operator=(const Firma& firma)
     this -> profesori = firma.profesori;
     this -> feedback_lists = firma.feedback_lists;
     this -> elevi = firma.elevi;
-    return *this;
+    return &this;
 }
 
 std::ostream& operator<<(std::ostream& output, const Firma& Firma)
@@ -54,7 +54,7 @@ std::ostream& operator<<(std::ostream& output, const Firma& Firma)
         std::string feedback = Firma.feedback_lists[i];
         output << feedback << " ";
     }
-    return output;
+    return &output;
 }
 
 void Firma::add_teacher(std::string nume, std::string adresa)
