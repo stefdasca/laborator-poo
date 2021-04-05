@@ -6,7 +6,7 @@ Elev::Elev(std::string a, int b, std::string c)
     clasa = b;
     Nume = a;
     Algorithms.clear();
-    Problems.clear();
+    Problems = 0;
     tasks.clear();
 }
 
@@ -16,8 +16,8 @@ Elev::Elev()
     Profesor = "";
     clasa = 0;
     Algorithms.clear();
-    Problems.clear();
-    tasks.clear();
+    Problems = 0;
+    tasks.clear(); 
 }
 
 Elev::~Elev()
@@ -26,7 +26,7 @@ Elev::~Elev()
     Profesor = "";
     clasa = 0;
     Algorithms.clear();
-    Problems.clear();
+    Problems = 0;
     tasks.clear();
 }
 
@@ -42,13 +42,13 @@ Elev::Elev(const Elev& elev)
 
 Elev Elev::operator=(const Elev& elev)
 {
-    this -> Nume = elev.Nume;
-    this -> clasa = elev.clasa;
-    this -> Profesor = elev.Profesor;
-    this -> Algorithms = elev.Algorithms;
-    this -> Problems = elev.Problems;
-    this -> tasks = elev.tasks;
-    return &this;
+    this->Nume = elev.Nume;
+    this->clasa = elev.clasa;
+    this->Profesor = elev.Profesor;
+    this->Algorithms = elev.Algorithms;
+    this->Problems = elev.Problems;
+    this->tasks = elev.tasks;
+    return *this;
 }
 
 std::ostream& operator<<(std::ostream& output, const Elev& elev)
@@ -57,7 +57,7 @@ std::ostream& operator<<(std::ostream& output, const Elev& elev)
     output << "clasa: " << elev.clasa << '\n';
     output << "Profesor indrumator: " << elev.Profesor << '\n';
     output << "Elevul a invatat " << elev.Algorithms.size() << " algoritmi si tehnici" << '\n';
-    output << "Elevul a rezolvat " << elev.Problems.size() << " probleme" << '\n';
+    output << "Elevul a rezolvat " << elev.Problems << " probleme" << '\n';
     return output;
 }
 
@@ -68,15 +68,25 @@ void Elev::insertalgo(std::string s)
 
 void Elev::inserttask(int p)
 {
-    tasks.insert(p);
+    this->tasks.insert(p);
 }
 
 void Elev::solvedtask(int p)
 {
-    tasks.erase(p);
+    this->tasks.erase(p);
 }
 
 std::string Elev::getname()
 {
     return Nume;
+}
+
+
+int Elev::get_score()
+{
+    return Problems;
+}
+void Elev::update_score(int val)
+{
+    Problems = val;
 }
