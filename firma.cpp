@@ -70,6 +70,7 @@ void Firma::add_feedback(std::string feedback)
 
 void Firma::detailed_feedback(int wh, std::string feedback)
 {
+    --wh; // 0 index
     Profesor y = profesori[wh];
     y.add_feedback(feedback);
     int val = y.rate_feedback(feedback);
@@ -78,6 +79,7 @@ void Firma::detailed_feedback(int wh, std::string feedback)
 
 Profesor Firma::getdata(int nr)
 {
+    --nr; // 0 index
     return profesori[nr];
 }
 
