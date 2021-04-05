@@ -16,7 +16,7 @@ Profesor::~Profesor()
     score_feedbacks = 0;
     nume = "";
     adresa = "";
-    for(int i = 0; i < elevi.size(); ++i) // distrugerea unui profesor presupune si distrugerea elevilor 
+    for(int i = 0; i < (int) elevi.size(); ++i) // distrugerea unui profesor presupune si distrugerea elevilor 
     {
         Elev e = getstudent(i);
         e.~Elev();
@@ -55,6 +55,7 @@ std::ostream& operator<<(std::ostream& output, const Profesor& profesor)
 {
     output << "Nume profesor: " << profesor.nume << '\n';
     output << "Profesorul a indrumat " << profesor.nr_elevi << " elevi" << '\n';
+    return output;
 }
 
 void Profesor::add_feedback(std::string s)
@@ -94,7 +95,7 @@ int Profesor::rate_feedback(std::string s) // un scor bazat pe cuvintele ce apar
     cuvinte["serios"] = 1; cuvinte["neserios"] = -2; cuvinte["multumit"] = 1; cuvinte["nemultumit"] = -2;
     cuvinte["implicat"] = 1; cuvinte["neimplicat"] = -2; cuvinte["lipsa"] = -1; cuvinte["dezinteresat"] = -2;
     cuvinte["neclare"] = -2; cuvinte["calm"] = 1; 
-    for(int i = 0; i < s.size(); ++i)
+    for(int i = 0; i < (int) s.size(); ++i)
     {
         std::string x;
         for(int j = i; j < std::min((int) s.size(), i + 15); ++j)
