@@ -80,8 +80,7 @@ int Profesor::getlink(std::string nume_elev)
 
 Elev Profesor::getstudent(int poz)
 {
-    --poz; // 0 index
-    return elevi[poz];
+    return elevi[poz-1];
 }
 
 std::string Profesor::getname()
