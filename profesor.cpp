@@ -70,7 +70,7 @@ void Profesor::add_elev(Elev e)
 {
     elevi.push_back(e);
     std::string x = e.getname();
-    link[x] = elevi.size() - 1;
+    link[x] = (int) elevi.size() - 1;
 }
 
 int Profesor::getlink(std::string nume_elev)
