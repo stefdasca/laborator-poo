@@ -42,18 +42,19 @@ Firma Firma::operator=(const Firma& firma)
 std::ostream& operator<<(std::ostream& output, const Firma& Firma)
 {
     output << "Lista profesori: " << '\n';
-    for(int i = 0; i < Firma.profesori.size(); ++i)
+    for(int i = 0; i < (int) Firma.profesori.size(); ++i)
     {
         Profesor prof = Firma.profesori[i];
         output << prof.getname() << " ";
     }
     output << '\n';
     output << "Lista feedback: " << '\n';
-    for(int i = 0; i < Firma.feedback_lists.size(); ++i)
+    for(int i = 0; i < (int) Firma.feedback_lists.size(); ++i)
     {
         std::string feedback = Firma.feedback_lists[i];
         output << feedback << " ";
     }
+    return output;
 }
 
 void Firma::add_teacher(std::string nume, std::string adresa)
