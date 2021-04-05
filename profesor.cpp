@@ -7,6 +7,9 @@ Profesor::Profesor(std::string b, std::string c)
     score_feedbacks = 0;
     nume = b;
     adresa = c;
+    elevi.clear();
+    feedback.clear();
+    link.clear();
 }
 
 Profesor::~Profesor()
