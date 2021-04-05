@@ -48,7 +48,7 @@ Profesor Profesor::operator=(const Profesor& profesor)
     this -> link = profesor.link;
     this -> cnt_feedbacks = profesor.cnt_feedbacks;
     this -> score_feedbacks = profesor.score_feedbacks;
-    return *this;
+    return &this;
 }
 
 std::ostream& operator<<(std::ostream& output, const Profesor& profesor)
