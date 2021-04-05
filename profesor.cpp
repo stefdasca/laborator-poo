@@ -77,6 +77,7 @@ int Profesor::getlink(std::string nume_elev)
 
 Elev Profesor::getstudent(int poz)
 {
+    --poz; // 0 index
     return elevi[poz];
 }
 
