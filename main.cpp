@@ -11,6 +11,7 @@
     type = 5: se primesc detaliile unei probleme de rezolvat si se adauga problema pentru elevul respectiv
     type = 6: se primesc detaliile unei noi teme de rezolvat si se adauga tema pentru elevul respectiv
     type = 7: se primesc detaliile unei probleme care a fost rezolvata si se sterge problema pentru elevul respectiv
+    type = 8: se afiseaza date despre un elev
 
 */
 
@@ -110,6 +111,16 @@ int main()
             int poz = x.getlink(nume_elev);
             Elev e = x.getstudent(poz);
             e.solvedtask(task_number);
+        }
+        if(type == 8) // afisam informatiile despre un elev
+        {
+            std::string nume_elev;
+            f >> nume_elev;
+            int val = company.getstudent(nume_elev); 
+            Profesor x = company.getdata(val);
+            int poz = x.getlink(nume_elev);
+            Elev e = x.getstudent(poz);
+            g << e << endl;
         }
     }
     return 0;
