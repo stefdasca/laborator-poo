@@ -10,11 +10,13 @@
     type = 6: se primesc detaliile unei noi teme de rezolvat si se adauga tema pentru elevul respectiv
     type = 7: se primesc detaliile unei probleme care a fost rezolvata si se sterge problema pentru elevul respectiv
     type = 8: se primeste numarul de ordine al unui elev si se afiseaza informatiile despre elev
+    type = 9: se primesc detaliile unei probleme la care un elev are nevoie de ajutor
 */
 
 #include <iostream>
 #include <vector>
 #include <fstream>
+#include <ctime>
 #include "firma.h"
 
 
@@ -83,8 +85,20 @@ int main()
             f >> difficulty;
             std::string solution;
             f >> solution;
-            Task problema(taskname, tags, difficulty, solution);
-            company.add_task(problema);
+            int type;
+            f >> type;
+            if (type == 0)
+            {
+                Task problema(taskname, tags, difficulty, solution);
+                company.add_task(problema);
+            }
+            else
+            {
+                EducationalTask problema;
+                problema.setdata(taskname, tags, difficulty, solution);
+                company.add_edu_task(problema);
+                std::cout << problema.getHelp() << '\n';
+            }
         }
         if (type == 6) // tema noua
         {
@@ -112,6 +126,17 @@ int main()
             f >> nume_elev;
             Elev e = company.getstudent(nume_elev);
             std::cout << e << std::endl;
+        }
+
+        if (type == 9) // un elev are nevoie de hint
+        {
+            std::string nume_elev;
+            int task_number;
+            f >> nume_elev >> task_number;
+            Elev e = company.getstudent(nume_elev);
+            EducationalTask tsk = company.getedutask(task_number);
+            std::string helphand = tsk.getHint(0);
+            e.insertalgo(helphand);
         }
     }
     return 0;
