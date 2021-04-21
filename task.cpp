@@ -24,6 +24,14 @@ Task::~Task()
     solution = "";
 }
 
+void Task::setdata(std::string a, std::vector<std::string> b, int c, std::string d)
+{
+    link = a;
+    problem_tags = b;
+    difficulty = c;
+    solution = d;
+}
+
 Task Task::operator=(const Task& task)
 {
     this->link = task.link;
@@ -55,4 +63,26 @@ std::ostream& operator<<(std::ostream& output, const Task& task)
     output << "Dificultate " << task.difficulty << '\n';
     output << "Link solutie " << task.solution << '\n';
     return output;
+}
+
+
+
+std::string EducationalTask::getHelp()
+{
+    return solution;
+}
+
+std::string EducationalTask::getHint(int nr)
+{
+    return problem_tags[nr];
+}
+
+void Task::tip_problema()
+{
+    std::cout << "Problema normala" << '\n';
+}
+
+void EducationalTask::tip_problema()
+{
+    std::cout << "Problema educationala" << '\n';
 }
