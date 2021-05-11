@@ -17,7 +17,7 @@ Elev::Elev()
     clasa = 0;
     Algorithms.clear();
     Problems = 0;
-    tasks.clear(); 
+    tasks.clear();
 }
 
 Elev::~Elev()
@@ -61,22 +61,22 @@ std::ostream& operator<<(std::ostream& output, const Elev& elev)
     return output;
 }
 
-void Elev::insertalgo(std::string s)
+void Elev::insert_algo(std::string s)
 {
     Algorithms.push_back(s);
 }
 
-void Elev::inserttask(int p)
+void Elev::insert_task(int p)
 {
     this->tasks.insert(p);
 }
 
-void Elev::solvedtask(int p)
+void Elev::solved_task(int p)
 {
     this->tasks.erase(p);
 }
 
-std::string Elev::getname()
+std::string Elev::get_name()
 {
     return Nume;
 }
