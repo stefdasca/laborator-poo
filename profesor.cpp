@@ -12,6 +12,18 @@ Profesor::Profesor(std::string b, std::string c)
     link.clear();
 }
 
+Profesor::Profesor()
+{
+    nr_elevi = 0;
+    cnt_feedbacks = 0;
+    score_feedbacks = 0;
+    nume = "";
+    adresa = "";
+    elevi.clear();
+    feedback.clear();
+    link.clear();
+}
+
 Profesor::~Profesor()
 {
     nr_elevi = 0;
@@ -66,13 +78,15 @@ void Profesor::add_elev(int x)
     elevi.push_back(x);
 }
 
-int Profesor::getlink(std::string nume_elev)
+int Profesor::get_link(std::string nume_elev)
 {
+    if(link.find(nume_elev) == link.end())
+        return -1;
     return link[nume_elev];
 }
 
 
-std::string Profesor::getname()
+std::string Profesor::get_name()
 {
     return this->nume;
 }
