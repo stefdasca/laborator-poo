@@ -20,15 +20,17 @@ public:
 
     friend std::ostream& operator<<(std::ostream& output, const Task& task);
     Task operator=(const Task& task);
-    void setdata(std::string a, std::vector<std::string> b, int c, std::string d);
+    void set_data(std::string a, std::vector<std::string> b, int c, std::string d);
     virtual void tip_problema();
+    virtual void add_difficulty(int nr);
 
 };
 
-class EducationalTask : public Task
+class Educational_Task : public Task
 {
-    public:
-        std::string getHint(int nr);
-        std::string getHelp();
-        void tip_problema();
+public:
+    std::string get_Hint(int nr);
+    std::string get_Help();
+    void tip_problema();
+    void add_difficulty(int nr);
 };
