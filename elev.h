@@ -21,10 +21,10 @@ public:
     friend std::ostream& operator<<(std::ostream& output, const Elev& elev);
     Elev operator=(const Elev& elev);
 
-    void insertalgo(std::string s);
-    void inserttask(int p);
-    void solvedtask(int p);
+    void insert_algo(std::string s);
+    void insert_task(int p);
+    void solved_task(int p);
     int get_score();
     void update_score(int val);
-    std::string getname();
+    std::string get_name();
 };
