@@ -16,7 +16,6 @@
 #include <iostream>
 #include <vector>
 #include <fstream>
-#include <ctime>
 #include "firma.h"
 
 
@@ -59,8 +58,8 @@ int main()
             int clasa;
             int teacher;
             f >> nume >> clasa >> teacher;
-            Profesor pr = company.getdata(teacher);
-            Elev student(nume, clasa, pr.getname());
+            Profesor pr = company.get_data(teacher);
+            Elev student(nume, clasa, pr.get_name());
             ++cnt_student;
             pr.add_elev(cnt_student);
             company.add_student(student);
@@ -69,17 +68,17 @@ int main()
         {
             std::string nume_algoritm, nume_elev;
             f >> nume_elev >> nume_algoritm;
-            Elev e = company.getstudent(nume_elev);
-            e.insertalgo(nume_algoritm);
+            Elev e = company.get_student(nume_elev);
+            e.insert_algo(nume_algoritm);
         }
         if (type == 5) // nou task
         {
-            std::string taskname;
-            f >> taskname;
-            int cnttags;
-            f >> cnttags;
-            std::vector<std::string> tags(cnttags);
-            for (int x = 0; x < cnttags; ++x)
+            std::string task_name;
+            f >> task_name;
+            int cnt_tags;
+            f >> cnt_tags;
+            std::vector<std::string> tags(cnt_tags);
+            for (int x = 0; x < cnt_tags; ++x)
                 f >> tags[x];
             int difficulty;
             f >> difficulty;
@@ -89,15 +88,15 @@ int main()
             f >> type;
             if (type == 0)
             {
-                Task problema(taskname, tags, difficulty, solution);
+                Task problema(task_name, tags, difficulty, solution);
                 company.add_task(problema);
             }
             else
             {
-                EducationalTask problema;
-                problema.setdata(taskname, tags, difficulty, solution);
+                Educational_Task problema;
+                problema.set_data(task_name, tags, difficulty, solution);
                 company.add_edu_task(problema);
-                std::cout << problema.getHelp() << '\n';
+                std::cout << problema.get_Help() << '\n';
             }
         }
         if (type == 6) // tema noua
@@ -105,8 +104,8 @@ int main()
             std::string nume_elev;
             int task_number;
             f >> nume_elev >> task_number;
-            Elev e = company.getstudent(nume_elev);
-            e.inserttask(task_number);
+            Elev e = company.get_student(nume_elev);
+            e.insert_task(task_number);
         }
 
         if (type == 7) // un elev a rezolvat o problema
@@ -114,8 +113,8 @@ int main()
             std::string nume_elev;
             int task_number;
             f >> nume_elev >> task_number;
-            Elev e = company.getstudent(nume_elev);
-            e.solvedtask(task_number);
+            Elev e = company.get_student(nume_elev);
+            e.solved_task(task_number);
             e.update_score(e.get_score() + 1);
             int poz = company.find_position(nume_elev);
             company.modify_position(poz, e);
@@ -124,7 +123,7 @@ int main()
         {
             std::string nume_elev;
             f >> nume_elev;
-            Elev e = company.getstudent(nume_elev);
+            Elev e = company.get_student(nume_elev);
             std::cout << e << std::endl;
         }
 
@@ -133,10 +132,10 @@ int main()
             std::string nume_elev;
             int task_number;
             f >> nume_elev >> task_number;
-            Elev e = company.getstudent(nume_elev);
-            EducationalTask tsk = company.getedutask(task_number);
-            std::string helphand = tsk.getHint(0);
-            e.insertalgo(helphand);
+            Elev e = company.get_student(nume_elev);
+            Educational_Task tsk = company.get_edu_task(task_number);
+            std::string help_hand = tsk.get_Hint(0);
+            e.insert_algo(help_hand);
         }
     }
     return 0;
