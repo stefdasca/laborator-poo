@@ -17,6 +17,7 @@ class Profesor
 public:
     Profesor(std::string b, std::string c);
     ~Profesor();
+    Profesor();
     Profesor(const Profesor& prof);
 
     friend std::ostream& operator<<(std::ostream& output, const Profesor& profesor);
@@ -24,8 +25,8 @@ public:
 
     void add_feedback(std::string s);
     void add_elev(int e);
-    int getlink(std::string nume_elev);
-    std::string getname();
+    int get_link(std::string nume_elev);
+    std::string get_name();
     int rate_feedback(std::string s);
     void add_score(int val);
 
