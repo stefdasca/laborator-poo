@@ -24,7 +24,7 @@ Task::~Task()
     solution = "";
 }
 
-void Task::setdata(std::string a, std::vector<std::string> b, int c, std::string d)
+void Task::set_data(std::string a, std::vector<std::string> b, int c, std::string d)
 {
     link = a;
     problem_tags = b;
@@ -65,15 +65,25 @@ std::ostream& operator<<(std::ostream& output, const Task& task)
     return output;
 }
 
+void Task::add_difficulty(int val)
+{
+    this->difficulty += val;
+}
 
+void Educational_Task::add_difficulty(int val)
+{
+    this->difficulty += val;
+}
 
-std::string EducationalTask::getHelp()
+std::string Educational_Task::get_Help()
 {
     return solution;
 }
 
-std::string EducationalTask::getHint(int nr)
+std::string Educational_Task::get_Hint(int nr)
 {
+    if(nr >= problem_tags.size())
+        return "Nu exista atatea taguri";
     return problem_tags[nr];
 }
 
@@ -82,7 +92,7 @@ void Task::tip_problema()
     std::cout << "Problema normala" << '\n';
 }
 
-void EducationalTask::tip_problema()
+void Educational_Task::tip_problema()
 {
     std::cout << "Problema educationala" << '\n';
 }
