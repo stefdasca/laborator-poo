@@ -6,7 +6,7 @@ Firma::Firma()
     feedback_lists.clear();
     elevi.clear();
     positions.clear();
-    tasklist.clear();
+    task_list.clear();
 }
 
 Firma::Firma(const Firma& f)
@@ -15,7 +15,7 @@ Firma::Firma(const Firma& f)
     feedback_lists = f.feedback_lists;
     elevi = f.elevi;
     positions = f.positions;
-    tasklist = f.tasklist;
+    task_list = f.task_list;
 }
 
 Firma::Firma(std::vector<Profesor> a, std::vector<std::string> b, std::vector<Elev> c, std::map<std::string, int> x, std::vector<Task> d)
@@ -24,7 +24,7 @@ Firma::Firma(std::vector<Profesor> a, std::vector<std::string> b, std::vector<El
     feedback_lists = b;
     elevi = c;
     positions = x;
-    tasklist = d;
+    task_list = d;
 }
 
 Firma::~Firma()
@@ -48,7 +48,7 @@ std::ostream& operator<<(std::ostream& output, const Firma& Firma)
     for (int i = 0; i < (int)Firma.profesori.size(); ++i)
     {
         Profesor prof = Firma.profesori[i];
-        output << prof.getname() << " ";
+        output << prof.get_name() << " ";
     }
     output << '\n';
     output << "Lista feedback: " << '\n';
@@ -79,33 +79,55 @@ void Firma::detailed_feedback(int wh, std::string feedback)
     y.add_score(val);
 }
 
-Profesor Firma::getdata(int nr)
+Profesor Firma::get_data(int nr)
 {
+    Profesor gol;
+    if(nr - 1 >= profesori.size())
+        return gol;
     return profesori[nr - 1];
 }
 
-Elev Firma::getstudent(std::string nume_elev)
+Elev Firma::get_student(std::string nume_elev)
 {
+    Elev gol;
+    if(positions.find(nume_elev) == positions.end())
+        return gol;
     return elevi[positions[nume_elev]];
 }
 
 int Firma::find_position(std::string nume_elev)
 {
+    if(positions.find(nume_elev) == positions.end())
+        return -1;
     return positions[nume_elev];
 }
 
 void Firma::add_task(Task tsk)
 {
-    tasklist.push_back(tsk);
+    task_list.push_back(tsk);
+}
+
+void Firma::add_edu_task(Educational_Task tsk)
+{
+    edu_task_list.push_back(tsk);
 }
 
 void Firma::add_student(Elev e)
 {
     elevi.push_back(e);
-    positions[e.getname()] = (int) elevi.size() - 1;
+    positions[e.get_name()] = (int) elevi.size() - 1;
 }
 
 void Firma::modify_position(int poz, Elev e)
 {
+    if(poz >= (int) elevi.size())
+        return;
     elevi[poz] = e;
+}
+
+Educational_Task Firma::get_edu_task(int nr)
+{
+    if(nr >= (int) edu_task_list.size())
+        return edu_task_list[0];
+    return edu_task_list[nr];
 }
