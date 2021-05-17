@@ -37,4 +37,5 @@ public:
     void modify_position(int poz, Elev e);
     void add_edu_task(Educational_Task tsk);
     Educational_Task get_edu_task(int nr);
+    void add_difficulty(int type, int position, int value);
 };
