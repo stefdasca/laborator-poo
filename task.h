@@ -21,7 +21,7 @@ public:
     friend std::ostream& operator<<(std::ostream& output, const Task& task);
     Task operator=(const Task& task);
     void set_data(std::string a, std::vector<std::string> b, int c, std::string d);
-    virtual void tip_problema();
+    virtual void tip_problema() const;
     virtual void add_difficulty(int nr);
 
 };
@@ -31,6 +31,6 @@ class Educational_Task : public Task
 public:
     std::string get_Hint(int nr);
     std::string get_Help();
-    void tip_problema();
-    void add_difficulty(int nr);
+    void tip_problema() const override;
+    void add_difficulty(int nr) override;
 };
