@@ -104,7 +104,7 @@ int Profesor::rate_feedback(std::string s) // un scor bazat pe cuvintele ce apar
     for (int i = 0; i < (int)s.size(); ++i)
     {
         std::string x;
-        for (int j = i; j < std::min((int)s.size(), i + 15); ++j)
+        for (int j = i; j < (int)s.size(); ++j)
         {
             x += s[j];
             if (cuvinte.find(x) != cuvinte.end())
