@@ -87,12 +87,12 @@ std::string Educational_Task::get_Hint(int nr)
     return problem_tags[nr];
 }
 
-void Task::tip_problema()
+void Task::tip_problema() const
 {
     std::cout << "Problema normala" << '\n';
 }
 
-void Educational_Task::tip_problema()
+void Educational_Task::tip_problema() const
 {
     std::cout << "Problema educationala" << '\n';
 }
