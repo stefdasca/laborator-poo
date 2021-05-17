@@ -81,17 +81,15 @@ void Firma::detailed_feedback(int wh, std::string feedback)
 
 Profesor Firma::get_data(int nr)
 {
-    Profesor gol;
     if(nr - 1 >= profesori.size())
-        return gol;
+        throw std::length_error("Nu exista acest profesor, verificati datele elevului corespunzator");
     return profesori[nr - 1];
 }
 
 Elev Firma::get_student(std::string nume_elev)
 {
-    Elev gol;
     if(positions.find(nume_elev) == positions.end())
-        return gol;
+        throw std::length_error("Nu exista acest elev, verificati datele introduse");
     return elevi[positions[nume_elev]];
 }
 
@@ -120,14 +118,28 @@ void Firma::add_student(Elev e)
 
 void Firma::modify_position(int poz, Elev e)
 {
-    if(poz >= (int) elevi.size())
-        return;
     elevi[poz] = e;
 }
 
 Educational_Task Firma::get_edu_task(int nr)
 {
     if(nr >= (int) edu_task_list.size())
-        return edu_task_list[0];
+        throw std::length_error("Nu exista aceasta problema");
     return edu_task_list[nr];
+}
+void Firma::add_difficulty(int type, int position, int value)
+{
+    if(type == 0 && position >= (int) task_list.size())
+        throw std::length_error("Nu exista aceasta problema");
+    else
+        if(type == 1 && position >= (int) edu_task_list.size())
+            throw std::length_error("Nu exista aceasta problema");
+        else
+        {
+            if(type == 0)
+                task_list[position].add_difficulty(value);
+            else
+                edu_task_list[position].add_difficulty(value);
+        }
+
 }
