@@ -11,6 +11,7 @@
     type = 7: se primesc detaliile unei probleme care a fost rezolvata si se sterge problema pentru elevul respectiv
     type = 8: se primeste numarul de ordine al unui elev si se afiseaza informatiile despre elev
     type = 9: se primesc detaliile unei probleme la care un elev are nevoie de ajutor
+    type = 10: se primesc detaliile unei probleme si se adauga un scor de dificultate
 */
 
 #include <iostream>
@@ -58,18 +59,32 @@ int main()
             int clasa;
             int teacher;
             f >> nume >> clasa >> teacher;
-            Profesor pr = company.get_data(teacher);
-            Elev student(nume, clasa, pr.get_name());
-            ++cnt_student;
-            pr.add_elev(cnt_student);
-            company.add_student(student);
+            try
+            {
+                Profesor pr = company.get_data(teacher);
+                Elev student(nume, clasa, pr.get_name());
+                ++cnt_student;
+                pr.add_elev(cnt_student);
+                company.add_student(student);
+            }
+            catch(std::length_error &err)
+            {
+                std::cout << err.what() << std::endl;
+            }
         }
         if (type == 4) // nou algoritm 
         {
             std::string nume_algoritm, nume_elev;
             f >> nume_elev >> nume_algoritm;
-            Elev e = company.get_student(nume_elev);
-            e.insert_algo(nume_algoritm);
+            try
+            {
+                Elev e = company.get_student(nume_elev);
+                e.insert_algo(nume_algoritm);
+            }
+            catch(std::length_error &err)
+            {
+                std::cout << err.what() << std::endl;
+            }
         }
         if (type == 5) // nou task
         {
@@ -84,9 +99,9 @@ int main()
             f >> difficulty;
             std::string solution;
             f >> solution;
-            int type;
-            f >> type;
-            if (type == 0)
+            int tip;
+            f >> tip;
+            if (tip == 0)
             {
                 Task problema(task_name, tags, difficulty, solution);
                 company.add_task(problema);
@@ -117,7 +132,8 @@ int main()
             e.solved_task(task_number);
             e.update_score(e.get_score() + 1);
             int poz = company.find_position(nume_elev);
-            company.modify_position(poz, e);
+            if(poz != -1)
+                company.modify_position(poz, e);
         }
         if (type == 8) // afisam informatiile despre un elev
         {
@@ -133,9 +149,29 @@ int main()
             int task_number;
             f >> nume_elev >> task_number;
             Elev e = company.get_student(nume_elev);
-            Educational_Task tsk = company.get_edu_task(task_number);
-            std::string help_hand = tsk.get_Hint(0);
-            e.insert_algo(help_hand);
+            try
+            {
+                Educational_Task tsk = company.get_edu_task(task_number);
+                std::string help_hand = tsk.get_Hint(0);
+                e.insert_algo(help_hand);
+            }
+            catch(std::length_error &err)
+            {
+                std::cout << err.what() << std::endl;
+            }
+        }
+        if (type == 10) // dificultate
+        {
+            int tip, position, value;
+            f >> tip >> position >> value;
+            try
+            {
+                company.add_difficulty(tip, position, value);
+            }
+            catch(std::length_error &err)
+            {
+                std::cout << err.what() << std::endl;
+            }
         }
     }
     return 0;
