@@ -16,14 +16,6 @@ Task::Task(std::string a, std::vector<std::string> b, int c, std::string d)
     this->solution = d;
 }
 
-Task::~Task()
-{
-    link = "";
-    problem_tags.clear();
-    difficulty = 0;
-    solution = "";
-}
-
 void Task::set_data(std::string a, std::vector<std::string> b, int c, std::string d)
 {
     link = a;
@@ -96,3 +88,7 @@ void Educational_Task::tip_problema() const
 {
     std::cout << "Problema educationala" << '\n';
 }
+
+Task::~Task() = default;
+
+Educational_Task::~Educational_Task() = default;
