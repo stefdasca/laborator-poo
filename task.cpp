@@ -57,15 +57,7 @@ std::ostream& operator<<(std::ostream& output, const Task& task)
     return output;
 }
 
-void Task::add_difficulty(int val)
-{
-    this->difficulty += val;
-}
 
-void Educational_Task::add_difficulty(int val)
-{
-    this->difficulty += val;
-}
 
 std::string Educational_Task::get_Help()
 {
@@ -79,16 +71,26 @@ std::string Educational_Task::get_Hint(int nr)
     return problem_tags[nr];
 }
 
-void Task::tip_problema() const
-{
-    std::cout << "Problema normala" << '\n';
+int Task::getDifficulty() const {
+    return difficulty;
 }
 
-void Educational_Task::tip_problema() const
-{
-    std::cout << "Problema educationala" << '\n';
+void Task::setDifficulty(int difficulty) {
+    Task::difficulty = difficulty;
 }
 
 Task::~Task() = default;
 
 Educational_Task::~Educational_Task() = default;
+
+void Task::add_difficulty(int val)
+{
+    int x = getDifficulty() + val;
+    setDifficulty(x);
+}
+
+void Educational_Task::add_difficulty(int val)
+{
+    int x = getDifficulty() + val;
+    setDifficulty(x);
+}
