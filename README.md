@@ -8,4 +8,6 @@ Commit #3: 22 martie - Am adaugat clasa task, am redenumit clasa teachers ca fii
 
 Commit #4: 6 aprilie - Am reparat toate bugurile, am rescris numeroase functii si am adaugat alte functii noi 
 
-Commie #5: 17 mai - Am tratat exceptiile, am introdus functiile virtuale in cod si am mai structurat codul respectand indicatiile.
+Commit #5: 17 mai - Am tratat exceptiile, am introdus functiile virtuale in cod si am mai structurat codul respectand indicatiile.
+
+Commit #6: 4 iunie - Am adaugat un design pattern(factory) si am regandit functiile virtuale.
