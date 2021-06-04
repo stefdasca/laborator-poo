@@ -12,6 +12,7 @@
     type = 8: se primeste numarul de ordine al unui elev si se afiseaza informatiile despre elev
     type = 9: se primesc detaliile unei probleme la care un elev are nevoie de ajutor
     type = 10: se primesc detaliile unei probleme si se adauga un scor de dificultate
+    type = 11: se creeaza un task sablon
 */
 
 #include <iostream>
@@ -173,6 +174,27 @@ int main()
                 std::cout << err.what() << std::endl;
             }
         }
+        if(type == 11) 
+        {
+            int tip;
+            f >> tip;
+            if(tip == 1)
+            {
+                Task t = task_template::easy_task();
+                company.add_task(t);
+            }
+            if(tip == 2)
+            {
+                Task t = task_template::medium_task();
+                company.add_task(t);
+            }
+            if(tip == 3)
+            {
+                Task t = task_template::hard_task();
+                company.add_task(t);
+            }
+        }
+
     }
     return 0;
 }
